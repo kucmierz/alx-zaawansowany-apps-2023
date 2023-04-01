@@ -1,0 +1,28 @@
+1
+Stwórz puste repozytorium na githubie i nazwij je alx-zaanwansowany-apps-2023
+Wewnątrz tego folderu, stwórz folder 00-prework-js
+Wewnątrz folderu 00-prework-js stwórz plik html i podłącz do niego plik JS
+W podłączonym pliku JS wykonaj zadanie przesłane poniżej
+Zadanie zcommituj i wyślij do mnie na Slacku w wiadomości prywatnej
+
+
+const products = [
+  {
+    name: 'banan',
+    price: 4.99
+  },
+  {
+    name: "chleb",
+    price: 3.25
+  },
+  {
+    name: 'ser',
+    price: 7.00
+  },
+  {
+    name: 'baton',
+    price: 1.99
+  }
+]
+
+Za pomocą JS oblicz średnią cenę produktu oraz jego sumę produktow w koszyku.
