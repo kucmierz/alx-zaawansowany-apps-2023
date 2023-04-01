@@ -29,10 +29,7 @@ const getSum = (array) => {
 };
 
 const getAvg = (array) => {
-    let sum = 0;
-    array.forEach(element => {
-        sum += element.price;
-    });
+    let sum = getSum(array);
     return (sum / array.length).toFixed(2);
 }
 
