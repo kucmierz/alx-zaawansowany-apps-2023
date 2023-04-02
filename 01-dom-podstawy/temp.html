@@ -6,32 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
-    <h1 id="title">To jest tytul mojej strony</h1>
+    <h1 id="title">Alx jest <span>fajny</span> </h1>
 
-    <form id="form">
+    <form id="messageForm">
         <label>
             Imie
-            <input type="text" id="inputName">
+            <input type="text" id="nameInput">
         </label>
         <label>
             Wiadomosc
-            <input type="text" id="inputMessage">
+            <input type="text" id="messageInput">
         </label>
-        <button type="submit" id="btnSubmit">Wyslij formularz</button>
+        <button type="submit">Wyslij formularz</button>
     </form>
 
-    <ul id="chatList">
+    <ul id="list">
         <li>
-            <strong>Damian</strong> napisal
-            <p> Super text </p>
+            <strong> ${nameInput.value} </strong> napisal
+            <p> ${messageInput.value} </p>
         </li>
     </ul>
 
-    <button id="btnClear">Usun elementy listy</button>
+    <button> Usun elementy listy </button>
 
     <script src="./js/main.js"></script>
 </body>

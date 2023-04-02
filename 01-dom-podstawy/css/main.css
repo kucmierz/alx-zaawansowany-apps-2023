@@ -1,0 +1,81 @@
+/* Style dla całej strony */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  /* Style dla nagłówka */
+  #title {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  #title span {
+    color: blue;
+  }
+  
+  /* Style dla formularza */
+  #form {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 1em;
+    margin-bottom: 10px;
+  }
+  
+  button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 3px;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  
+  /* Style dla listy */
+  #chatList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #chatList li {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+  
+  #chatList li p {
+    margin-top: 5px;
+  }
+  
+  #chatList li strong {
+    color: #007bff;
+  }
+  
+  /* Style dla przycisku */
+  button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 3px;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  
