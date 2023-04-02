@@ -94,6 +94,13 @@ for (let product of products) {
 }
 console.log(`Suma wszystkich fruits: ${fruitsSum}`);
 
+const fruitsOnly = products.filter(product => product.category === 'fruits');
+let sum2 = 0;
+for (let fruit of fruitsOnly) {
+    sum2 += fruit.price;
+}
+console.log(sum2);
+
 // 4. Napisz funkcje sumProducts, ktora przyjmie tablice obiektow products z zadania 3, a nastepnie zwroci sume wszystkich produktow
 
 const sumProducts = (array) => {
