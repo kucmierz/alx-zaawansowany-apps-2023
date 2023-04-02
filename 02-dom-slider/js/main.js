@@ -13,6 +13,7 @@
 const image = document.querySelector('img');
 const btnPrev = document.querySelector('#btnPrev');
 const btnNext = document.querySelector('#btnNext');
+const divControls = document.querySelector('#divControls');
 
 const images = [
     {
@@ -36,21 +37,27 @@ const images = [
 let counter = 0;
 image.src = images[0].src;
 
-const handleNextButton = (ev) => {
-    ev.preventDefault();
+const showNextImage = () => {
     if (counter + 1 >= images.length) {
         counter = -1;
     }
     image.src = images[++counter].src;
 };
 
-const handlePrevButton = (ev) => {
-    ev.preventDefault();
+const showPrevImage = () => {
     if (counter - 1 < 0) {
         counter = images.length;
     }
     image.src = images[--counter].src;
 };
 
-btnNext.addEventListener('click', handleNextButton);
-btnPrev.addEventListener('click', handlePrevButton);
+const handleImageChange = (ev) => {
+    if (ev.target.id === "btnNext") {
+        showNextImage();
+    }
+    if (ev.target.id === "btnPrev") {
+        showPrevImage();
+    }
+};
+
+divControls.addEventListener('click', handleImageChange);
