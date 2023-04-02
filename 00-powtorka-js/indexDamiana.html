@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+
+    <!-- Emmet skroty -->
+
+    <!-- ! to jest wywolanie podstawowego szablonu HTML -->
+
+    <!-- ! -->
+
+    <!-- stworzenie listy, ktora zawiera 4 elementy li, a w kazdym z nich element a z atrybutem href="#" -->
+
+    <!-- ul>li*4>a[href="#"] -->
+
+    <ul>
+        <li>Kursor ustawtiony w 4 miejsach</li>
+        <li>Kursor ustawtiony w 4 miejsach</li>
+        <li>Kursor ustawtiony w 4 miejsach</li>
+        <li>Kursor ustawtiony w 4 miejsach</li>
+    </ul>
+
+    <!-- Znacznik z otwarciem i zakonczeniem -->
+    <h1> Hello World </h1>
+    <p> Tekst </p>
+    <button>
+        Treść
+    </button>
+    <a href="#" target="_blank">Tresc linka</a>
+
+    <div>
+        Element blokowony - kontener
+    </div>
+
+    <span>
+        Element liniowy
+    </span>
+    <!-- Lista kropkowana -->
+    <ul>
+        <li>element listy</li>
+    </ul>
+    <!-- Lista ponumerowana -->
+    <ol>
+        <li>element listy</li>
+    </ol>
+
+    <!-- tabela -->
+    <table>
+        <!-- rzad -->
+        <tr>
+            <td>Komorka</td>
+        </tr>
+    </table>
+
+    <strong>Tekst pogrubiony</strong>
+    <b>
+        Tekst pogrubiony
+    </b>
+    <i>
+        Tekst pochylony
+    </i>
+
+    <form>
+        <label>
+            Imie
+            <input type="text">
+        </label>
+    </form>
+
+    <!-- Znaczniki semantyczne -->
+
+    <!-- Accesibility - znaczniki aria -->
+    <nav> </nav>
+    <header></header>
+    <footer></footer>
+    <main></main>
+    <section></section>
+
+
+    <!-- Znacznik samozamykajacy sie -->
+    <input type="text">
+    <br>
+    <hr>
+    <img src="X">
+
+    <!-- 2 sposob znacznika samozamykajacego sie -->
+    <img src="X" />
+
+
+    <!-- Atrybuty w znacznikach HTML -->
+
+    <div class="element__class" id="element-id" style="padding: 10px;">
+        Tekst
+    </div>
+
+    <input type="text | radio | date | textarea | file | number | checkbox | submit" value="wartosc" name=""
+        placeholder="Podpowiedz wewnatrz inputa, kasuje sie po wpisaniu 1 znaku" min="" max="" disabled="" hidden
+        title="X" data-id="Tekst">
+
+    <img src="#" alt="Tekst alternatywny">
+
+
+    <!-- Script ladujemy przed koncem body, poniewaz wtedy nie musimy pisac addEventListener DOMContentLoaded -->
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
