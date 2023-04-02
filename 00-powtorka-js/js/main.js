@@ -26,5 +26,14 @@ const people = [
 // Wiktoria
 
 const getTheOldestPerson = (array) => {
+    let oldestPerson = array[0];
 
+    array.forEach(people => {
+        if (people.age>oldestPerson.age) {
+            oldestPerson=people;
+        }
+    });
+    return oldestPerson.name;
 };
+
+console.log(getTheOldestPerson(people));
