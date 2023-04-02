@@ -80,3 +80,17 @@ const handleSubmit = (ev) => {
     console.log('wysylam formularz');
 };
 form.addEventListener('submit', handleSubmit);
+
+
+// Cwiczenie dla was:
+
+// w HTML jest guzik "usun wszystkie elementy". Dodaj event, ktory po wcisnieciu guzika, usunie wszystkie elementy listy. UWAGA: po usunieciu listy, powinienem dalej moc dodawac nowe elementy
+
+const btnClear = document.querySelector('#btnClear');
+
+const handleClearButton = (ev) => {
+    ev.preventDefault();
+    chatList.innerHTML = '';
+};
+
+btnClear.addEventListener('click', handleClearButton);
