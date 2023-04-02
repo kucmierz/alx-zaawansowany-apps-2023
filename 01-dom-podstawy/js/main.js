@@ -59,3 +59,24 @@ const addMessages = (messagesArray) => {
 };
 
 addMessages(messages);
+
+
+// Eventy
+// click i submit
+// const title = document.querySelector('#title');
+
+// const handleTitleClick = () => {
+//     console.log('h1 zostal klikniety');
+// };
+
+// title.addEventListener('click', handleTitleClick);
+const handleSubmit = (ev) => {
+    ev.preventDefault();
+    //pobranie wartosci inputow
+    newMessage(inputName.value, inputMessage.value, chatList);
+    // zerowanie inputow
+    inputName.value = '';
+    inputMessage.value = '';
+    console.log('wysylam formularz');
+};
+form.addEventListener('submit', handleSubmit);
