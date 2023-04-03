@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Products</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-    <form>
+    <form id="productForm">
         <label for="id">ID:</label>
         <input type="number" id="id" name="id" required>
 
@@ -23,7 +23,7 @@
         <input type="submit" value="Add Product">
     </form>
 
-    <table>
+    <table id="productTable">
         <tr>
             <th>ID</th>
             <th>Name</th>
@@ -45,6 +45,9 @@
             <td id="price">$30.00</td>
         </tr>
     </table>
+
+    <button id="btnClear" class="warning-button">Clear Table</button>
+
     <script src="./js/main.js"></script>
 </body>
 
