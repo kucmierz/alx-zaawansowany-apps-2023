@@ -1,8 +1,7 @@
 const messageForm = document.querySelector("#messageForm");
 const inputAuthor = document.querySelector("#inputAuthor");
 const inputMessage = document.querySelector("#inputMessage");
-const searchForm = document.querySelector("#searchForm");
-const inputSearch = document.querySelector("#inputSearch");
+const messageList = document.querySelector("#messageList");
 
 // localStorage.removeItem("messages");
 let messages = JSON.parse(localStorage.getItem("messages"));
@@ -10,9 +9,9 @@ if (messages === null) {
   messages = [];
 }
 
-const renderList = (msgArray) => {
+const renderList = () => {
   messageList.innerHTML = "";
-  const sortedMessages = msgArray.sort((a, b) => {
+  const sortedMessages = messages.sort((a, b) => {
     return a.id > b.id ? -1 : 1;
   });
   sortedMessages.forEach((msg) => {
@@ -46,7 +45,7 @@ const validate = () => {
   return isOK;
 };
 
-const handleAddSubmit = (ev) => {
+const handleSubmit = (ev) => {
   ev.preventDefault();
   if (!validate()) {
     return 0;
@@ -58,26 +57,11 @@ const handleAddSubmit = (ev) => {
     author: inputAuthor.value,
     message: inputMessage.value,
   };
+//   addtoHTML(newMessage);
   messages.push(newMessage);
   localStorage.setItem("messages", JSON.stringify(messages));
-  renderList(messages);
-  inputAuthor.value = '';
-  inputMessage.value = '';
+  renderList();
 };
 
-const handleSearchSubmit = (ev) => {
-  ev.preventDefault();
-  const searchPhrase = inputSearch.value.toLowerCase();
-  const results = [];
-  messages.forEach(msg => {
-    if ((msg.author.toLowerCase().includes(searchPhrase) || (msg.message.toLowerCase().includes(searchPhrase)))) {
-      results.push(msg);
-    }
-  });
-  renderList(results);
-  inputSearch.value = '';
-};
-
-renderList(messages);
-messageForm.addEventListener("submit", handleAddSubmit);
-searchForm.addEventListener("submit", handleSearchSubmit);
+renderList();
+messageForm.addEventListener("submit", handleSubmit);
