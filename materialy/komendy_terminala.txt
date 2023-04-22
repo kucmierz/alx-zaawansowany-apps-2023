@@ -1,0 +1,14 @@
+Ls - komenda do pokazywania plików w danym folderze
+Pwd - komenda, ktora zwraca folder, w którym się znajdujemy
+Cd - komenda, który służy do poruszania się miedzy folderami
+Cd Desktop - komenda, która przejdzie do folderu desktop (uwaga: mogę przejść tylko do folderu znajdującego się 1 poziom niżej)
+Cd .. - komenda, która wraca do folderu wyżej
+Clear - komenda, która czyści to co mamy wpisane w terminalu
+————
+Mkdir X - tworzenie folderu o nazwie X (uwaga: nazwy folderu nie powinny mieć spacji)
+Touch nazwa-pliku.rozszerzenie - stworzenie pliku wewnątrz folderu w którym się znajdujemy
+Vim nazwa-pliku - otworzenie pliku w VIM (edytor tekstu w terminalu)
+W Vimie
+I -> tryb edycji
+Esc -> wyjście z trybu edycji
+:wq -> zapisanie pliku i wyjście z niego

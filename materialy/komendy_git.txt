@@ -1,0 +1,25 @@
+Zbiór Komend GIT
+
+Git —version - sprawdzenie czy mamy zainstalowanego GITA
+
+git config --global user.name "Damian Rogulski" - podaje do GIT jak się nazywam
+git config --global user.email "rogaldj@gmail.com" - podaje do GIT jaki jest mój adres email
+
+Git init - utworzenie projektu GIT z folderu na naszym komputerze
+
+Git status - informacje o różnicach w plikach pomiędzy naszym folderem a zdalnym repozytorium
+
+Git add nazwa-pliku - dodanie plików do paczki
+Git add . - dodanie wszystkich zmian do paczki
+
+Git commit -m "nazwa paczki" - nazwanie naszej paczki
+
+Git remote add origin X - komenda, która ustanawia połączenie pomiędzy repozytorium a naszym folderem
+
+Git push origin master - wysłanie naszej paczki na serwer
+
+Komendy GIT - Pobieranie
+Git clone link-do-repo -> pobieranie repozytorium z githuba na swój komputer. UWAGA: folder się stworzy w miejscu, gdzie wpisujemy komendę	
+Git log -> zwraca informacje o commitach, które znajdują się w repozytorium
+Git pull origin master -> pobieranie najnowszej wersji z repozytorium
+git reset --hard -> powrót do ostatniego commita (ta komenda powoduje usunięcie wszystkich zmian, które się dokonały od ostatniego commita)

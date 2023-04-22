@@ -1,0 +1,14 @@
+kurs HTML/CSS https://www.youtube.com/watch?v=H6RMv-23A5Y&list=PLbxRbShUdF8UybMp_6csiQDgq9xhiMz0u&index=1
+
+https://git-scm.com/downloads
+https://nodejs.org/en
+
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+https://github.com/airbnb/javascript
+
+https://github.com/ROGAL12321/alx-zaawansowany-apps-2023
+
+https://getbem.com/introduction/
+
+
