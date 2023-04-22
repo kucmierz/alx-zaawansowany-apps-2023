@@ -11,4 +11,4 @@ https://github.com/ROGAL12321/alx-zaawansowany-apps-2023
 
 https://getbem.com/introduction/
 
-
+Polecam przeczytanie tez https://www.patterns.dev/posts/singleton-pattern dla zainteresowanych

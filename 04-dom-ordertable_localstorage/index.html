@@ -24,29 +24,24 @@
     </form>
 
     <table id="productTable">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Price</th>
-        </tr>
-        <tr>
-            <td id="id">1</td>
-            <td id="name">Product A</td>
-            <td id="price">$10.00</td>
-        </tr>
-        <tr>
-            <td id="id">2</td>
-            <td id="name">Product B</td>
-            <td id="price">$20.00</td>
-        </tr>
-        <tr>
-            <td id="id">3</td>
-            <td id="name">Product C</td>
-            <td id="price">$30.00</td>
-        </tr>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody id="orderTabeBody"></tbody>
     </table>
 
     <button id="btnClear" class="warning-button">Clear Table</button>
+
+    <div>
+        <h2>Order summary</h2>
+        <p>Sum: <span id="ordersSum">0</span></p>
+        <p>Average Price <span id="ordersAvgPrice">0</span></p>
+        <button id="calculateOrders">Calculate</button>
+    </div>
 
     <script src="./js/main.js"></script>
 </body>

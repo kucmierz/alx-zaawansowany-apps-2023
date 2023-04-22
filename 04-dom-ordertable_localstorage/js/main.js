@@ -1,93 +1,120 @@
-// 1. Napisz kod JS, ktory dodaje elementy do tabeli
-// 2. Po wyslaniu formularza, wyczysc pola formularza
-// 3. Pod tabela dodaj przycisk usun rekordy, ktory usunie wszystkie elementy z tabeli%       
-// 4*. Napisz walidacje formularza spelniajaca dane kryteria
-// - Pole price musi byc wieksze od 0
-// - Pole name musi miec wiecej niz 2 znaki
-// - Pole ID musi byc unikalne (nie moze sie powtarzac)
+const productForm = document.querySelector("#productForm");
+const idInput = document.querySelector("#id");
+const nameInput = document.querySelector("#name");
+const priceInput = document.querySelector("#price");
+const productTable = document.querySelector("#productTable");
+const orderTabeBody = document.querySelector("#orderTabeBody");
+const btnClear = document.querySelector("#btnClear");
+const calculateOrders = document.querySelector("#calculateOrders");
+const ordersSum = document.querySelector("#ordersSum");
+const ordersAvgPrice = document.querySelector("#ordersAvgPrice");
 
-const productForm = document.querySelector('#productForm');
-const idInput = document.querySelector('#id');
-const nameInput = document.querySelector('#name');
-const priceInput = document.querySelector('#price');
-const productTable = document.querySelector('#productTable');
-const btnClear = document.querySelector('#btnClear');
+// struktura danych: tablica obiektow
+// 1. Obiekty musza miec takie same pola
+// 2. kolejnosc zamowien ma znaczenie pod katem dodania do html
+
+let orders = [
+  {
+    id: 1,
+    name: "Banan",
+    price: 9.99,
+  },
+  {
+    id: 2,
+    name: "Wisnie",
+    price: 19.99,
+  },
+  {
+    id: 3,
+    name: "Cytryny",
+    price: 3.45,
+  },
+];
 
 const newProduct = (id, name, price, htmlElem) => {
-    htmlElem.innerHTML += `
+  htmlElem.innerHTML += `
     <tr>
         <td id="id">${id}</td>
         <td id="name">${name}</td>
         <td id="price">$${price}</td>
     </tr>
-    `
+    `;
+};
+
+// dodanie orders do tablicy html
+const renderOrders = () => {
+  orderTabeBody.innerHTML = "";
+  for (const order of orders) {
+    newProduct(order.id, order.name, order.price, orderTabeBody);
+  }
 };
 
 const resetForm = () => {
-    idInput.value = '';
-    nameInput.value = '';
-    priceInput.value = '';
+  idInput.value = "";
+  nameInput.value = "";
+  priceInput.value = "";
 };
 
-const clearHTMLElem = (htmlElem) => {
-    htmlElem.innerHTML = '';
+const validID = (id) => {
+  const ids = orders.map((order) => order.id);
+  orders.forEach((order) => {
+    ids.push(order["id"]);
+  });
+  if (ids.includes(id)) {
+    return false;
+  } else {
+    return true;
+  }
 };
-
-const getAllIDs = () => {
-    const tds = productTable.getElementsByTagName('td');
-    const ids = [];
-    for (const td of tds) {
-        if (td.id === "id") {
-            ids.push(parseInt(td.innerText));
-        }
-    }
-    return ids;
-}
-
-// wersja z zajec
-// const isUniqueId = () => {
-//     const idRows = table.querySelectorAll('tr td:first:child');
-//     let isUnique = true;
-//     idRows.forEach(idRow => {
-//         if (idRow.innerText === orderId.value) {
-//             isUnique = false
-//         }
-//     })
-//     return isUnique;
-// }
-
-const validID = (idArray, id) => {
-    if (idArray.includes(id)) {
-        return false;
-    } else {
-        return true;
-    }
-}
 
 const validation = () => {
-    let validationOK = false;
-    const ids = getAllIDs();
+  let validationOK = false;
 
-    if (nameInput.value.length > 2 && priceInput.value > 0 && validID(ids, parseInt(idInput.value))) {
-        validationOK = true;
-    }
-    return validationOK;
-}
+  if (
+    nameInput.value.length > 2 &&
+    priceInput.value > 0 &&
+    validID(parseInt(idInput.value))
+  ) {
+    validationOK = true;
+  }
+  return validationOK;
+};
 
 const handleSubmit = (ev) => {
-    ev.preventDefault();
+  ev.preventDefault();
 
-    if (validation()) {
-        return 0;
-    }
-    newProduct(idInput.value, nameInput.value, priceInput.value, productTable);
-    resetForm();
+  if (!validation()) {
+    return 0;
+  }
+
+  newProduct(idInput.value, nameInput.value, priceInput.value, orderTabeBody);
+
+  const newOrder = {
+    id: parseInt(idInput.value),
+    name: nameInput.value,
+    price: parseFloat(priceInput.value),
+  };
+
+  orders.push(newOrder);
+  resetForm();
 };
 
 const handleBtnClear = (ev) => {
-    clearHTMLElem(productTable);
+  orders = [];
+  renderOrders();
 };
 
-productForm.addEventListener('submit', handleSubmit);
-btnClear.addEventListener('click', handleBtnClear);
+const handleCalculate = (ev) => {
+  const sum = orders
+    .map((order) => order.price)
+    .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+  let orderAvg = orders.length === 0 ? 0 : (sum / orders.length).toFixed(2);
 
+  ordersSum.innerHTML = sum;
+  ordersAvgPrice.innerHTML = orderAvg;
+};
+
+renderOrders();
+productForm.addEventListener("submit", handleSubmit);
+btnClear.addEventListener("click", handleBtnClear);
+calculateOrders.addEventListener("click", handleCalculate);
