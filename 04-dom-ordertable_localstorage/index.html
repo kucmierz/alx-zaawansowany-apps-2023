@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <form id="productForm">
+        <label for="id">ID:</label>
+        <input type="number" id="id" name="id" required>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" required>
+
+        <input type="submit" value="Add Product">
+    </form>
+
+    <table id="productTable">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+            <td id="id">1</td>
+            <td id="name">Product A</td>
+            <td id="price">$10.00</td>
+        </tr>
+        <tr>
+            <td id="id">2</td>
+            <td id="name">Product B</td>
+            <td id="price">$20.00</td>
+        </tr>
+        <tr>
+            <td id="id">3</td>
+            <td id="name">Product C</td>
+            <td id="price">$30.00</td>
+        </tr>
+    </table>
+
+    <button id="btnClear" class="warning-button">Clear Table</button>
+
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
