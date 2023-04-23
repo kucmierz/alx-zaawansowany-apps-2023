@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <h1>Wyszukiwarka Filmów</h1>
+
+    <!-- formularz wyszukiwania -->
+    <form id="searchForm">
+        <input type="text" placeholder="Wpisz tytuł filmu" name="search">
+        <input type="submit" value="Szukaj">
+    </form>
+
+    <form id="sortForm">
+        <label>Sortuj po
+            <select name="movieSortSelect" id="movieSortSelect">
+                <option value="desc">Dacie malejaco</option>
+                <option value="asc">Dacie rosnaco</option>
+            </select>
+        </label>
+    </form>
+
+    <!-- lista filmów -->
+    <div class="movie-container" id="movieContainer">
+        <!-- <div class="movie">
+            <img src="https://via.placeholder.com/150x200" alt="Tytuł filmu">
+            <h2>Rambo</h2>
+            <div class="year">Rok produkcji: 2021</div>
+            <div class="date-added">Data dodania: 01.01.2022</div>
+            <p>Opis filmu lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis orci scelerisque, finibus
+                erat sit amet, ullamcorper metus.</p>
+        </div>
+        <div class="movie">
+            <img src="https://via.placeholder.com/150x200" alt="Tytuł filmu">
+            <h2>Avatar 2</h2>
+            <div class="year">Rok produkcji: 2021</div>
+            <div class="date-added">Data dodania: 01.01.2022</div>
+            <p>Opis filmu lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis orci scelerisque, finibus
+                erat sit amet, ullamcorper metus.</p>
+        </div>
+        <div class="movie">
+            <img src="https://via.placeholder.com/150x200" alt="Tytuł filmu">
+            <h2>Top Gun</h2>
+            <div class="year">Rok produkcji: 2021</div>
+            <div class="date-added">Data dodania: 01.01.2022</div>
+            <p>Opis filmu lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis orci scelerisque, finibus
+                erat sit amet, ullamcorper metus.</p>
+        </div>
+        <div class="movie">
+            <img src="https://via.placeholder.com/150x200" alt="Tytuł filmu">
+            <h2>Swiety Mikolaj</h2>
+            <div class="year">Rok produkcji: 2021</div>
+            <div class="date-added">Data dodania: 01.01.2022</div>
+            <p>Opis filmu lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis orci scelerisque, finibus
+                erat sit amet, ullamcorper metus.</p>
+        </div> -->
+    </div>
+
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
