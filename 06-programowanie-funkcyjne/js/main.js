@@ -247,226 +247,263 @@ console.log(getElementsFromCategory(products2, 'Bakery'))
 
 const greeting = (name) => {
     return `Hello ${name}`
-  }
-  
-  console.log(greeting('Damian'));
-  
-  // 2. Napisz funkcje sumElements(), ktora przyjmie tablice obiektow z polami name i price. I ma obliczyc sume elementow
-  
-  const sumElements = (collection) => {
+}
+
+console.log(greeting('Damian'));
+
+// 2. Napisz funkcje sumElements(), ktora przyjmie tablice obiektow z polami name i price. I ma obliczyc sume elementow
+
+const sumElements = (collection) => {
     let sum = 0;
-  
+
     // for(let item of collection) {
     //   sum += item.price
     // }
-  
+
     collection.forEach(item => {
-      sum += item.price
+        sum += item.price
     })
-  
+
     // - Od tej pory, uzywamy petli forEach, zamiast for...of
     // - Do liczenia/kalkulacji sumy, mozemy uzyc funkcji reduce
-  
+
     return sum
-  }
-  
-  
-  // Funkcja reduce sluzy do obliczania rzeczy w tablicy
-  const sumElementsWithReduce = (collection) => {
-  
+}
+
+
+// Funkcja reduce sluzy do obliczania rzeczy w tablicy
+const sumElementsWithReduce = (collection) => {
+
     // accumulator jest to wynik dzialania dla poprzedniego elementu
     let sum = collection.reduce((accumulator, element) => {
-      return accumulator + element.price;
+        return accumulator + element.price;
     }, 0)
-  
+
     // let sum = 0;
-  
+
     // collection.forEach(item => {
     //   sum += item.price
     // })
-  
+
     return sum
-  }
-  
-  console.log(sumElements([
+}
+
+console.log(sumElements([
     {
-      name: 'Chleb',
-      price: 9.99
+        name: 'Chleb',
+        price: 9.99
     },
     {
-      name: 'Jablko',
-      price: 5.00
+        name: 'Jablko',
+        price: 5.00
     }
-  ]))
-  console.log(sumElementsWithReduce([
+]))
+console.log(sumElementsWithReduce([
     {
-      name: 'Chleb',
-      price: 9.99
+        name: 'Chleb',
+        price: 9.99
     },
     {
-      name: 'Jablko',
-      price: 5.00
+        name: 'Jablko',
+        price: 5.00
     }
-  ]))
-  
-  // -----------------
-  
-  // 3. Napisz funkcje getLetters(), ktora przyjmie tablice imion, a nastepnie zwroci tablice zawierajaca ile jest liter w kazdym slowie
-  
-  // getLetters(['Damian', 'Ania']) -> [6,4]
-  
-  
-  const getLetters = (names) => {
+]))
+
+// -----------------
+
+// 3. Napisz funkcje getLetters(), ktora przyjmie tablice imion, a nastepnie zwroci tablice zawierajaca ile jest liter w kazdym slowie
+
+// getLetters(['Damian', 'Ania']) -> [6,4]
+
+
+const getLetters = (names) => {
     let results = [];
-  
+
     names.forEach(name => {
-      results.push(name.length);
+        results.push(name.length);
     })
-  
+
     return results;
-  }
-  
-  // Wbudowana funkcja map, ktora sluzy do transformacji elementow w tablicy
-  const getLettersWithMap = (names) => {
+}
+
+// Wbudowana funkcja map, ktora sluzy do transformacji elementow w tablicy
+const getLettersWithMap = (names) => {
     return names.map(name => {
-      return name.length
+        return name.length
     });
-  }
-  
-  console.log(getLetters(['Damian', 'Ania']));
-  console.log(getLettersWithMap(['Damian', 'Ania']));
-  
-  
-  // -----------------
-  
-  // 4. Napisz funckje getTheMostExpensiveProduct, ktora przyjmie tablice z zadania 2 i zwróci obiekt, zawierający najdrozszy produkt
-  
-  const getTheMostExpensiveProduct = (collection) => {
+}
+
+console.log(getLetters(['Damian', 'Ania']));
+console.log(getLettersWithMap(['Damian', 'Ania']));
+
+
+// -----------------
+
+// 4. Napisz funckje getTheMostExpensiveProduct, ktora przyjmie tablice z zadania 2 i zwróci obiekt, zawierający najdrozszy produkt
+
+const getTheMostExpensiveProduct = (collection) => {
     let theMostExpensiveProduct = collection[0];
-  
+
     collection.forEach(item => {
-      if(item.price > theMostExpensiveProduct.price) {
-        theMostExpensiveProduct = item;
-      }
+        if (item.price > theMostExpensiveProduct.price) {
+            theMostExpensiveProduct = item;
+        }
     })
-  
+
     return theMostExpensiveProduct
-  }
-  
-  const getTheMostExpensiveProductWithSort = (collection) => {
+}
+
+const getTheMostExpensiveProductWithSort = (collection) => {
     const sortedCollection = collection.sort((previousElement, nextElement) => {
-      // - Jesli zamienimy 1 i -1 na -1 i 1, to bedziemy sortowac rosnaco lub malejaco
-      // - Musismy podac klucz, po ktorym chcemy sortowac (tutaj podajemy price)
-      return previousElement.price > nextElement.price ? -1 : 1
+        // - Jesli zamienimy 1 i -1 na -1 i 1, to bedziemy sortowac rosnaco lub malejaco
+        // - Musismy podac klucz, po ktorym chcemy sortowac (tutaj podajemy price)
+        return previousElement.price > nextElement.price ? -1 : 1
     })
-  
+
     return sortedCollection[0];
-  }
-  
-  console.log(getTheMostExpensiveProductWithSort([{name:"Komputer", price: 100}, {name:"Lampa", price: 10}]))
-  
-  
-  // getTheMostExpensiveProduct([{name:"Komputer", price: 100}, {name:"Lampa", price: 10}]) -> {name: "Komputer", price: 100}
-  
-  // -----------------
-  
-  // 5. Napisz funkcje findNameIndex, ktora przyjmie tablice imion i imie, ktore ma wyszukac, a nastepnie zwroci indeks tego elementu
-  
-  // findNameIndex(['Damian', 'Ania'], 'Ania') -> 1
-  // findNameIndex(['Damian', 'Ania'], 'Damian') -> 0
-  
-  
-  
-  const findNameIndex = (collection, name) => {
+}
+
+console.log(getTheMostExpensiveProductWithSort([{ name: "Komputer", price: 100 }, { name: "Lampa", price: 10 }]))
+
+
+// getTheMostExpensiveProduct([{name:"Komputer", price: 100}, {name:"Lampa", price: 10}]) -> {name: "Komputer", price: 100}
+
+// -----------------
+
+// 5. Napisz funkcje findNameIndex, ktora przyjmie tablice imion i imie, ktore ma wyszukac, a nastepnie zwroci indeks tego elementu
+
+// findNameIndex(['Damian', 'Ania'], 'Ania') -> 1
+// findNameIndex(['Damian', 'Ania'], 'Damian') -> 0
+
+
+
+const findNameIndex = (collection, name) => {
     let nameIndex = -1; // w JS index -1 oznacza, ze elementu nie ma w tablicy
-  
+
     // Funkcja forEach i map, moze przyjac drugi parametr, zawierajacy index aktualnego elementu
-  
+
     collection.forEach((item, index) => {
-      if(item === name) {
-        nameIndex = index
-      }
+        if (item === name) {
+            nameIndex = index
+        }
     })
-  
+
     return nameIndex
-  }
-  
-  
-  const findNameIndexWithFunction = (collection, name) => {
+}
+
+
+const findNameIndexWithFunction = (collection, name) => {
     // find - zwraca pierwszy element, ktory spelnie podane kryterium
     // findIndex - zwraca index znalezionego elementu
     return collection.findIndex(element => {
-      return element === name
+        return element === name
     })
-  }
-  
-  console.log(findNameIndex(['Damian', 'Ania'], 'Ania'))
-  console.log(findNameIndexWithFunction(['Damian', 'Ania'], 'Ania'))
-  
-  
-  
-  // ---------------------- Najpopularniejsza funkcja filter --------------------------
-  
-  
-  // 1. Napisz funkcje searchByText, ktora przyjmuje tablice obiektow wiadomosci i fraze po ktorej ma szukac. Zwroc elementy, ktore spelniaja dana fraze
-  
-  
-  const messages = [
+}
+
+console.log(findNameIndex(['Damian', 'Ania'], 'Ania'))
+console.log(findNameIndexWithFunction(['Damian', 'Ania'], 'Ania'))
+
+
+
+// ---------------------- Najpopularniejsza funkcja filter --------------------------
+
+
+// 1. Napisz funkcje searchByText, ktora przyjmuje tablice obiektow wiadomosci i fraze po ktorej ma szukac. Zwroc elementy, ktore spelniaja dana fraze
+
+
+const messages = [
     {
-      author: "Damian",
-      message: "Jest fajnie"
+        author: "Damian",
+        message: "Jest fajnie"
     },
     {
-      author: "Paweł",
-      message: "Kurs ALX jest super"
+        author: "Paweł",
+        message: "Kurs ALX jest super"
     }
-  ]
-  
-  // searchMessagesByText(messages, 'nie') => [{ author: 'Damian', message: 'Jest fajnie' }]
-  
-  const searchMessagesByText = (collection, phrase) => {
+]
+
+// searchMessagesByText(messages, 'nie') => [{ author: 'Damian', message: 'Jest fajnie' }]
+
+const searchMessagesByText = (collection, phrase) => {
     const results = [];
-  
+
     collection.forEach(element => {
-      // funkcja includes sluzy do sprawdzania, czy dany element znajduje sie w tablicy lub w stringu
-      // * mozemy tez uzyc funkcji indexOf. Jesli element jest w tablicy, to jego index jest wiekszy od 0
-      if(element.message.includes(phrase)) {
-        results.push(element);
-      }
+        // funkcja includes sluzy do sprawdzania, czy dany element znajduje sie w tablicy lub w stringu
+        // * mozemy tez uzyc funkcji indexOf. Jesli element jest w tablicy, to jego index jest wiekszy od 0
+        if (element.message.includes(phrase)) {
+            results.push(element);
+        }
     })
-  
+
     return results;
-  }
-  
-  const searchMessagesByTextWithFilter = (collection, phrase) => {
+}
+
+const searchMessagesByTextWithFilter = (collection, phrase) => {
     // funkcja filter, tak samo jak find i findIndex, przyjmuje boolean w argumencie. Jesli boolean jest true, to wynik przejdzie do nowej tablicy, natomiast jesli jest false, to nie przejdzie
     return collection.filter(element => {
-      return element.message.includes(phrase);
+        return element.message.includes(phrase);
     });
-  }
-  
-  console.log(searchMessagesByText(messages, 'super'));
-  console.log(searchMessagesByTextWithFilter(messages, 'e'));
-  
-  
-  // 2. Napisz funckje getSumOfFruits, ktora przyjmuje tablice obiektów i zwraca sume samych owocow.
-  
-  const products3 = [
+}
+
+console.log(searchMessagesByText(messages, 'super'));
+console.log(searchMessagesByTextWithFilter(messages, 'e'));
+
+
+// 2. Napisz funckje getSumOfFruits, ktora przyjmuje tablice obiektów i zwraca sume samych owocow.
+
+const products3 = [
     {
-      name: "Jablko",
-      category: "Fruits",
-      price: 4.99
+        name: "Jablko",
+        category: "Fruits",
+        price: 4.99
     },
     {
-      name: "Banan",
-      category: "Fruits",
-      price: 7.00
+        name: "Banan",
+        category: "Fruits",
+        price: 7.00
     },
     {
-      name: "Chleb",
-      category: "Bakery",
-      price: 3.99
+        name: "Chleb",
+        category: "Bakery",
+        price: 3.99
     }
-  ]
-  
-  // getSumOfFruits(products3) -> 11.99
+]
+
+// getSumOfFruits(products3) -> 11.99
+// 2. Napisz funckje getSumOfFruits, ktora przyjmuje tablice obiektów i zwraca sume samych owocow.
+
+const products4 = [
+    {
+        name: "Jablko",
+        category: "Fruits",
+        price: 4.99
+    },
+    {
+        name: "Banan",
+        category: "Fruits",
+        price: 7.00
+    },
+    {
+        name: "Chleb",
+        category: "Bakery",
+        price: 3.99
+    }
+]
+
+// getSumOfFruits(products3) -> 11.99
+
+const getSumOfFruits = (collection) => {
+    let sum = 0;
+
+    const fruits = collection.filter(item => {
+        return item.category === 'Fruits';
+    })
+
+    fruits.forEach(item => {
+        sum += item.price
+    })
+
+    return sum;
+}
+
+console.log(getSumOfFruits(products3))
