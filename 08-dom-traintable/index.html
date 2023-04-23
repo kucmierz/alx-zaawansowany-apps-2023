@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kolejowa wyszukiwarka połączeń</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <h1>Kolejowa wyszukiwarka połączeń</h1>
+
+    <form>
+        <label for="search">Wyszukaj po nazwie:</label>
+        <input type="text" id="search" name="search">
+        <input type="submit" value="Szukaj">
+    </form>
+
+    <form>
+        <h2>Dodaj nowe połączenie:</h2>
+        <label for="from">Z:</label>
+        <input type="text" id="from" name="from" placeholder="np. Warszawa">
+        <label for="to">Do:</label>
+        <input type="text" id="to" name="to" placeholder="np. Lublin">
+        <label for="time">Godzina:</label>
+        <input type="time" id="time" name="time">
+        <label for="date">Data:</label>
+        <input type="date" id="date" name="date">
+        <label for="name">Nazwa połączenia:</label>
+        <input type="text" id="name" name="name">
+        <button type="submit">Dodaj</button>
+    </form>
+
+    <label for="city">Wybierz miasto:</label>
+    <select id="city" name="city">
+        <option value="">-- Wybierz --</option>
+        <option value="Warszawa">Warszawa</option>
+        <option value="Lublin">Lublin</option>
+        <option value="Kraków">Kraków</option>
+    </select>
+    <label for="sort">Sortuj po dacie:</label>
+    <select id="sort" name="sort">
+        <option value="asc">Rosnąco</option>
+        <option value="desc">Malejąco</option>
+    </select>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Z</th>
+                <th>Do</th>
+                <th>Godzina</th>
+                <th>Data</th>
+                <th>Nazwa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Warszawa</td>
+                <td>Lublin</td>
+                <td>16:30</td>
+                <td>23.04.2023</td>
+                <td>Sniezka</td>
+            </tr>
+            <tr>
+                <td>Lublin</td>
+                <td>Warszawa</td>
+                <td>10:00</td>
+                <td>24.04.2023</td>
+                <td>Piast</td>
+            </tr>
+            <tr>
+                <td>Kraków</td>
+                <td>Warszawa</td>
+                <td>14:15</td>
+                <td>25.04.2023</td>
+                <td>Tatry</td>
+            </tr>
+            <tr>
+                <td>Lublin</td>
+                <td>Kraków</td>
+                <td>09:45</td>
+                <td>26.04.2023</td>
+                <td>Pieniny</td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
