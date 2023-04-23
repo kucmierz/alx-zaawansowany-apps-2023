@@ -4,11 +4,14 @@ const inputMessage = document.querySelector("#inputMessage");
 const searchForm = document.querySelector("#searchForm");
 const inputSearch = document.querySelector("#inputSearch");
 
-// localStorage.removeItem("messages");
-let messages = JSON.parse(localStorage.getItem("messages"));
-if (messages === null) {
-  messages = [];
-}
+// // localStorage.removeItem("messages");
+// let messages = JSON.parse(localStorage.getItem("messages"));
+// if (messages === null) {
+//   messages = [];
+// }
+
+// ES9 - Nullish operator
+let messages = JSON.parse(localStorage.getItem("messages") ??[]);
 
 const renderList = (msgArray) => {
   messageList.innerHTML = "";
@@ -68,12 +71,17 @@ const handleAddSubmit = (ev) => {
 const handleSearchSubmit = (ev) => {
   ev.preventDefault();
   const searchPhrase = inputSearch.value.toLowerCase();
-  const results = [];
-  messages.forEach(msg => {
-    if ((msg.author.toLowerCase().includes(searchPhrase) || (msg.message.toLowerCase().includes(searchPhrase)))) {
-      results.push(msg);
-    }
+  // const results = [];
+  // messages.forEach(msg => {
+  //   if ((msg.author.toLowerCase().includes(searchPhrase) || (msg.message.toLowerCase().includes(searchPhrase)))) {
+  //     results.push(msg);
+  //   }
+  // });
+
+  const results = messages.filter(msg => {
+    return (msg.author.toLowerCase().includes(searchPhrase) || (msg.message.toLowerCase().includes(searchPhrase)))
   });
+  
   renderList(results);
   inputSearch.value = '';
 };

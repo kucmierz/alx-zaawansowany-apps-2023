@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+  <div class="container">
+    <form id="messageForm">
+      <label for="author">Author:</label>
+      <input type="text" id="author" name="author">
+      <label for="message">Message:</label>
+      <textarea id="message" name="message"></textarea>
+      <input type="submit" value="Submit">
+    </form>
+
+    <ul id="messageList" class="message-list"></ul>
+  </div>
+
+  <!--
+  Stwórz aplikacje Chat, która spełnia następujące kryteria:
+
+  - Stworz formularz zawierajacy 2 pola: author i message
+  - Stworz liste pod formularzem i spraw, zeby mozna bylo dodawac nowe wiadomosci
+  - Nowe wiadomosci dodaj na gore listy
+  - Zrob walidacje na formularz, ze pole author nie moze byc puste i pole message musi wiecej niz 2 znaki
+  - Dane zapisuj do localStorage
+
+  * Nad formularzem dodaj input i przycisk, ktory umozliwi wyszukiwanie wiadomosci. Jesli wpiszesz jakas fraze i wcisniesz przycisk, wyswietl tylko te wiadomości, gdzie tekst pokrywa się z wyszukiwaną frazą
+
+  ** Rozszerz aplikację do projektu npm, dodaj bibliotekę Parcel i firebase, a następnie zrób połączenie z Firebase aby pobierać i wysyłać wiadomości -->
+
+  <script src="./js/main.js"></script>
+</body>
+
+</html>
