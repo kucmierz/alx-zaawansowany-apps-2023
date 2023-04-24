@@ -29,3 +29,37 @@ Stworz HTML i CSS ktora imitowac bedzie wyszukiwarke połączeń kolejowych. Kaz
   4. Dodaj pod wyszukiwarka pole select, gdzie bedziesz mogl wybrac liste miast. Jesli wybierzesz dane miasto, pokazuj polaczenia z lub do danego miasta
   5. Pod selectem dodaj inny select, za pomoca ktorego bedziesz mogl sortowac polaczenia po dacie
   6. dodaj kilka rekordow
+
+
+
+
+  let connections = [
+    {
+        cityFrom: 'Warszawa',
+        cityTo: 'Lublin',
+        time: '16:30',
+        date: '23.04.2023',
+        name: 'Sniezka'
+    },
+    {
+        cityFrom: 'Lublin',
+        cityTo: 'Warszawa',
+        time: '10:00',
+        date: '24.04.2023',
+        name: 'Piast'
+    },
+    {
+        cityFrom: 'Kraków',
+        cityTo: 'Warszawa',
+        time: '14:15',
+        date: '25.04.2023',
+        name: 'Tatry'
+    },
+    {
+        cityFrom: 'Lublin',
+        cityTo: 'Kraków',
+        time: '09:45',
+        date: '26.04.2023',
+        name: 'Pieniny'
+    },
+];
