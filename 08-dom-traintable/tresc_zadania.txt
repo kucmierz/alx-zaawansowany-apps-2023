@@ -63,3 +63,18 @@ Stworz HTML i CSS ktora imitowac bedzie wyszukiwarke połączeń kolejowych. Kaz
         name: 'Pieniny'
     },
 ];
+
+<tr>
+  <td>Lublin</td>
+  <td>Katowice</td>
+  <td>12:00</td>
+  <td>27.04.2023</td>
+  <td>Tarnobrzeg</td>
+</tr>
+<tr>
+  <td>Warszawa</td>
+  <td>Gdańsk</td>
+  <td>08:45</td>
+  <td>28.04.2023</td>
+  <td>Bałtyk</td>
+</tr>
