@@ -2,9 +2,23 @@ const searchForm = document.querySelector('#searchForm');
 const connectionsTable = document.querySelector('#connectionsTable');
 const connectionForm = document.querySelector('#connectionForm');
 const citySelect = document.querySelector('#citySelect');
+const sortSelect = document.querySelector('#sortSelect');
 
+const DEFAULT_SORT = 'asc';
 // get data from localStorage
 let connections = JSON.parse(localStorage.getItem('connections') ?? []);
+
+const sortByDate = (collection, sortOrder) => {
+    if (sortOrder === 'asc') {
+        return collection.sort((a, b) => {
+            return new Date(a.date) > new Date(b.date) ? 1 : -1;
+        });
+    } else {
+        return connections.sort((a, b) => {
+            return new Date(a.date) > new Date(b.date) ? -1 : 1;
+        });
+    }
+};
 
 const renderConnectionTable = (collectionToRender, renderElement) => {
     renderElement.innerHTML = '';
@@ -14,7 +28,7 @@ const renderConnectionTable = (collectionToRender, renderElement) => {
             <td>${element.cityFrom}</td>
             <td>${element.cityTo}</td>
             <td>${element.time}</td>
-            <td>${element.date}</td>
+            <td>${new Date(element.date).toLocaleDateString('pl-Pl')}</td>            
             <td>${element.name}</td>
         </tr>
         `;
@@ -40,13 +54,11 @@ const newOptionElement = (selectionHTML, value, text) => {
 const feedSelection = (selectElement, collection) => {
     citySelect.innerHTML = '';
     // first, empty element, option
-    newOptionElement(selectElement, '', '-- Wybierz --');
+    newOptionElement(selectElement, 0, '-- Wybierz --');
     collection.forEach(city => {
         newOptionElement(selectElement, city, city);
     });
 };
-
-feedSelection(citySelect, getUniqueCities(connections));
 
 const searchConnectionsByName = (collection, phrase) => {
     return collection.filter(element => {
@@ -55,6 +67,8 @@ const searchConnectionsByName = (collection, phrase) => {
 };
 
 const searchConnectionByCity = (collection, selectedCity) => {
+    if (selectedCity === '0') return collection;
+
     return collection.filter(element => {
         return element.cityFrom === selectedCity || element.cityTo === selectedCity;
     });
@@ -69,12 +83,11 @@ const handleSearchName = (ev) => {
 
 const handleNewConnection = (ev) => {
     ev.preventDefault();
-    // console.log(ev.target.elements.from);
     const newConnection = {
         cityFrom: ev.target.elements.from.value,
         cityTo: ev.target.elements.to.value,
         time: ev.target.elements.time.value,
-        date: ev.target.elements.date.value,
+        date: new Date(ev.target.elements.date.value).toLocaleDateString('pl-PL'),
         name: ev.target.elements.name.value
     };
     connections.push(newConnection);
@@ -88,7 +101,14 @@ const handleCitySelection = (ev) => {
     renderConnectionTable(searchConnectionByCity(connections, ev.target.value), connectionsTable);
 };
 
-renderConnectionTable(connections, connectionsTable);
+const handleSortSelection = (ev) => {
+    renderConnectionTable(sortByDate(connections, ev.target.value), connectionsTable);
+};
+
+feedSelection(citySelect, getUniqueCities(connections));
+const sortedConnections = sortByDate(connections, DEFAULT_SORT);
+renderConnectionTable(sortedConnections, connectionsTable);
 searchForm.addEventListener('submit', handleSearchName);
 connectionForm.addEventListener('submit', handleNewConnection);
 citySelect.addEventListener('change', handleCitySelection);
+sortSelect.addEventListener('change', handleSortSelection);

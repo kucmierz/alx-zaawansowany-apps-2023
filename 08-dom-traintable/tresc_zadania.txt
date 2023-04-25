@@ -33,36 +33,38 @@ Stworz HTML i CSS ktora imitowac bedzie wyszukiwarke połączeń kolejowych. Kaz
 
 
 
-  let connections = [
+localStorage.removeItem('connections');
+let connections = [
     {
         cityFrom: 'Warszawa',
         cityTo: 'Lublin',
         time: '16:30',
-        date: '23.04.2023',
+        date: new Date(2023, 3, 23),
         name: 'Sniezka'
     },
     {
         cityFrom: 'Lublin',
         cityTo: 'Warszawa',
         time: '10:00',
-        date: '24.04.2023',
+        date: new Date(2023, 3, 24),
         name: 'Piast'
     },
     {
         cityFrom: 'Kraków',
         cityTo: 'Warszawa',
         time: '14:15',
-        date: '25.04.2023',
+        date: new Date(2023, 3, 25),
         name: 'Tatry'
     },
     {
         cityFrom: 'Lublin',
         cityTo: 'Kraków',
         time: '09:45',
-        date: '26.04.2023',
+        date: new Date(2023, 3, 26),
         name: 'Pieniny'
     },
 ];
+localStorage.setItem('connections', JSON.stringify(connections));
 
 <tr>
   <td>Lublin</td>
