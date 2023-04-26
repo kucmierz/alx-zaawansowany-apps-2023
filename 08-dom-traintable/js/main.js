@@ -96,11 +96,12 @@ const handleNewConnection = (ev) => {
         cityFrom: ev.target.elements.from.value,
         cityTo: ev.target.elements.to.value,
         time: ev.target.elements.time.value,
-        date: new Date(ev.target.elements.date.value).toLocaleDateString('pl-PL'),
+        date: new Date(ev.target.elements.date.value),
         name: ev.target.elements.name.value
     };
     connections.push(newConnection);
     localStorage.setItem('connections', JSON.stringify(connections));
+    feedSelection(citySelect, getUniqueCities(connections));
     renderConnectionTable(connections, connectionsTable);
     connectionForm.reset();
 };
