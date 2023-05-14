@@ -1,0 +1,25 @@
+{
+  "trains": [
+    {
+      "id": 1,
+      "from": "Warsaw",
+      "name": "Sniezka",
+      "date": "13.05.2023",
+      "time": "14:41"
+    },
+    {
+      "from": "Koblenz",
+      "to": "Bonn",
+      "name": "RB",
+      "time": "15:45",
+      "id": 2
+    },
+    {
+      "from": "Lublin",
+      "to": "Katowice",
+      "name": "Tarnobrzeg",
+      "time": "bbb",
+      "id": 3
+    }
+  ]
+}

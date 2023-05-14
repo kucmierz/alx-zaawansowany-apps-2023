@@ -1,0 +1,14 @@
+{
+  "name": "12-json-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "db": "json-server -p 8000 ./db/database.json"
+  },
+  "author": "Marek",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.3"
+  }
+}

@@ -1,0 +1,25 @@
+instalacja npm
+npm init w folderze projektu
+nastepnie instalacja pakietu json-server
+npm install json-server
+
+przed uruchomieniem-modyfikacje package.json
+tamiast "test":   "scripts": {
+    "db": "json-server -p 8000 ./db/database.json"
+  },
+
+uruchomienie serwera
+npm run db
+
+zakonczenie dzialania serwera
+ctrl + z
+
+kiedy serwer zglasza zajety port, wtedy wpisz:
+lsof -i:8000
+
+z tego co wyjdzie, wazny jest numer PID
+COMMAND  PID          USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+node    3421 marekkucmierz   26u  IPv6 0x918af607937ceaff      0t0  TCP localhost:irdmi (LISTEN)
+
+nastepnie wpisz (na koniec jest numer PID):
+kill -9 3421

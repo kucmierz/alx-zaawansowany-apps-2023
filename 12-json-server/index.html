@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Train timetable</h1>
+    <form id="searchForm">
+        <label>
+            Search
+            <input type="text" name="search">
+        </label>
+        <button type="submit">Wyszukaj</button>
+    </form>
+
+    <hr>
+
+    <form id="addTrainForm">
+        <div>
+            <label>
+                from
+                <input type="text" name="from">
+            </label>
+        </div>
+        <div>
+            <label>
+                to
+                <input type="text" name="to">
+            </label>
+        </div>
+        <div>
+            <label>
+                name
+                <input type="text" name="name">
+            </label>
+        </div>
+        <div>
+            <label>
+                date
+                <input type="text" name="date">
+            </label>
+        </div>
+        <div>
+            <label>
+                time
+                <input type="text" name="time">
+            </label>
+        </div>
+
+        <button type="submit">Wyslij</button>
+    </form>
+
+
+
+    <table>
+        <thead>
+            <th>Date</th>
+            <th>From</th>
+            <th>Name</th>
+            <th>Time</th>
+        </thead>
+        <tbody id="trainTable">
+
+        </tbody>
+
+    </table>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
