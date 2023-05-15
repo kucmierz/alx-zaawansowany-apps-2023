@@ -1,0 +1,67 @@
+Start, co instalujemy:
+
++ npm init -y //uruchamia npm'a z domyslnymi wartosciami
+
+nastepnie json-server:
++ npm install json-server
+
+pamietaj, node_modules nie wrzuca sie na git'a - uzyj .gitignore
+plikow cache takze sie nie wrzuca
+tworzy sie jeden plik .gitignore na projekt
+
+piszac 'npm install' i instaluja sie wszystkie paczki wymienione w pliku package-lock.json
+
+tworzymy katalog 'db' i w nim plik database.json by imitowal mikro baze danych
+
+
+podmiana  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+by uruchamiac json-server
+"scripts": {
+    "db": "json-server -p 8000 ./db/database.json"
+  },
+jaka paczka ma byc uruchomiona, na jakim porcie, oraz sciezka do bazy
+
+    "db": "json-server -p 8000 --watch ./db/database.json"
+uruchomienie w trybie nasluchiwania - powinien sam sie zrestartowac kiedy zmodyfikuje sie jakis plik
+
+uruchomienie servera poprzez
++ npm run db
+
+instalacja paczki parcel
++ npm install parcel
+
+tworzymy folder src, ktory bedzie trzymac wszystkie nasze pliki strony
+
+modyfikujemy scripts w package.json
+"scripts": {
+    "db": "json-server -p 8000 ./db/database.json",
+    "dev":"parcel 'src/*.html'"
+  },
+
+uruchamiamy poprzez:
++ npm run dev
+wejscie na 
+http://localhost:1234
+powinno wyswietlic nasza strone
+
+uruchomienie dwoch skryptow rownoczesnie, db i dev, instalacja nowej paczki
+
++ npm install npm-run-all
+modyfikacja scripts
+  "scripts": {
+    "db": "json-server -p 8000 ./db/database.json",
+    "dev": "parcel 'src/*.html'",
+    "start": "npm-run-all --parallel db dev"
+  },
+
+i uruchomienie poprzez
++ npm run start
+
+kolejne polecenia zadania:
+<!-- Napisz aplikacje, ktora wyswietli z bazy danych liste apartemntow. Na stronie glownej wyswietl tylko tytul, cene i date publikacji. -->
+
+
+<!-- Do obecnej aplikacji dorób mozliwosc edycji mieszkan. Na liscie mieszkan dodaj przycisk edytuj >, ktory przekieruje uzytkownika na strone edit.html. Strona edit.html niech zaladuje dane mieszkania do inputow. Nastepnie po wcisnieciu przycisku zakoncz edycje, zmien zawartosc mieszkania w bazie danych i przekieruj uzytkownika do strony glownej. -->
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ogloszenia mieszkaniowe</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <h1>Index Page</h1>
+    <form id="searchForm">
+        <label>
+            Min price
+            <input type="text" name="minPrice" required>
+        </label>
+        <label>
+            Max price
+            <input type="text" name="maxPrice" required>
+        </label>
+        <button type="submit">Filter by price</button>
+    </form>
+    <form id="sortForm">
+        <label>Sortuj wyniki rosnaco wg ceny
+            <input type="checkbox" name="sortPriceAsc" checked>
+        </label>
+    </form>
+    <ul id="apartments"></ul>
+
+    <button id="logoutBtn">Wyloguj</button>
+
+    <script src="./js/index.js" type="module"></script>
+</body>
+
+</html>

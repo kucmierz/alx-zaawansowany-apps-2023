@@ -12,3 +12,17 @@ https://github.com/ROGAL12321/alx-zaawansowany-apps-2023
 https://getbem.com/introduction/
 
 Polecam przeczytanie tez https://www.patterns.dev/posts/singleton-pattern dla zainteresowanych
+
+How to upload files from your HTML form using Base64 encoding | refine
+https://refine.dev/blog/how-to-base64-upload/
+
+Learn JavaScript design and performance patterns for building more powerful web applications
+https://www.patterns.dev/posts
+
+
+
+
+
+
+
+

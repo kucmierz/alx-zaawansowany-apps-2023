@@ -1,0 +1,29 @@
+{
+  "apartments": [
+    {
+      "title": "Nowe mieszkanie 50m2 TANIO",
+      "description": "Lorem Ipsum Dolor Sit Amet",
+      "price": "799999",
+      "publication_date": "14.05.2023",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "title": "30m, taniej nie sprzedam",
+      "description": "Idealny stan, niemiec plakal jak sie wyprowadzal",
+      "price": 599999,
+      "publication_date": "10.05.2023",
+      "photos": []
+    }
+  ],
+  "users": [
+    {
+      "email": "abc@wp.pl",
+      "password": "1234"
+    },
+    {
+      "email": "jck@gmail.com",
+      "password": "qwertz"
+    }
+  ]
+}
