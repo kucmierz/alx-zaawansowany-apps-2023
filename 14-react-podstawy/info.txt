@@ -1,0 +1,33 @@
+
+
+na start, w glownym folderze kursu wpisalismy komende tworzaca folder aplikacji React wraz z potrzebnymi plikami i ustawieniami
+npx create-react-app 14-react-podstawy
+
+uruchomienie aplikacji: przejsc do katalogu/folderu projektu i w konsoli wpisac:
+npm start
+
+instalowanie paczki generujacej randomowe id do list:
+npm install uuid
+
+dodajemy db
+a nastepnie seerver i run all
+mozna zainstalowac to w jednej linijce:
+ npm install npm-run-all json-server
+
+potrzeba run all by wystartowac server i react
+modyfikacja w package.json fragmentu script:
+
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "db": "json-server -p 8000 ./db/db.json",
+    "all": "npm-run-all --parallel start db"
+  },
+
+
+
+
+
+

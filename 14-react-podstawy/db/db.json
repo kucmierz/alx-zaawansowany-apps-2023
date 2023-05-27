@@ -1,0 +1,29 @@
+{
+  "messages": [
+    {
+      "id": "b22c2042-559c-4f86-a141-0ce87430a6c7",
+      "author": "Marek",
+      "message": "Tekst 1"
+    },
+    {
+      "id": "83bcaf60-fe10-4719-97c6-1c8708b9fe56",
+      "author": "Wojtek",
+      "message": "Tekst 3"
+    },
+    {
+      "id": "9a734aea-3aff-4df0-bfc9-d473ff61c6a0",
+      "author": "Ela",
+      "message": "Tekst 4"
+    }
+  ],
+  "todos": [
+    {
+      "id": "7bb93d88-5b26-4d55-a290-940947e88176",
+      "name": "task 1"
+    },
+    {
+      "id": "20c27f70-6926-49fb-9629-c4f81fca1bc9",
+      "name": "task 2"
+    }
+  ]
+}
