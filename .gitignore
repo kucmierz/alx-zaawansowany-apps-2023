@@ -1,3 +1,5 @@
 node_modules
 .parcel-cache
 dist
+13-js-otodom/src/.DS_Store
+13-js-otodom/src/js/.DS_Store
