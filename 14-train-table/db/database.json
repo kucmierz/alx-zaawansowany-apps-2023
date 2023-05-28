@@ -1,0 +1,28 @@
+{
+  "trains": [
+    {
+      "id": "56a86e99-23ca-4de9-8103-33580b9cfd92",
+      "cityFrom": "Koblenz",
+      "cityTo": "Bonn",
+      "time": "20:47",
+      "date": "2023-05-31",
+      "name": "Helmut"
+    },
+    {
+      "id": "592573e1-3ed4-4ef7-bf17-41d85b96c132",
+      "cityFrom": "Bonn",
+      "cityTo": "Koblenz",
+      "time": "07:13",
+      "date": "2023-06-29",
+      "name": "Helga"
+    },
+    {
+      "id": "78eb0d34-aefc-4eaa-ac12-6b5a4ec9f1d5",
+      "cityFrom": "Berlin",
+      "cityTo": "Trier",
+      "time": "15:53",
+      "date": "2023-05-30",
+      "name": "Kanclerzowa"
+    }
+  ]
+}
