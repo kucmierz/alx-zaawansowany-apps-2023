@@ -1,0 +1,19 @@
+.app_header {
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px;
+    background-color: #ffc107;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.app_header:hover {
+    background-color: #ff9800;
+}
+
+.logo {
+    max-width: 40px;
+}

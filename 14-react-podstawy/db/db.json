@@ -1,29 +1,57 @@
 {
   "messages": [
     {
-      "id": "b22c2042-559c-4f86-a141-0ce87430a6c7",
+      "id": "1d643f3e-d9d3-4ecd-ac92-9a586a94c511",
+      "author": "Basia",
+      "message": "mily dzien"
+    },
+    {
+      "id": "6f6979eb-ebc8-4dc3-ae1f-91f587d5a086",
       "author": "Marek",
-      "message": "Tekst 1"
+      "message": "Kiedy obiad"
     },
     {
-      "id": "83bcaf60-fe10-4719-97c6-1c8708b9fe56",
-      "author": "Wojtek",
-      "message": "Tekst 3"
-    },
-    {
-      "id": "9a734aea-3aff-4df0-bfc9-d473ff61c6a0",
+      "id": "6a31b39f-ad63-4cce-a947-175cd3905588",
       "author": "Ela",
-      "message": "Tekst 4"
+      "message": "Jestem dzis w pracy"
     }
   ],
   "todos": [
     {
-      "id": "7bb93d88-5b26-4d55-a290-940947e88176",
-      "name": "task 1"
+      "id": "0ad62768-aa63-4d36-933d-c506f522d784",
+      "name": "zjesc obiad"
     },
     {
-      "id": "20c27f70-6926-49fb-9629-c4f81fca1bc9",
-      "name": "task 2"
+      "id": "1014b5a6-6c71-4b21-b0d9-ab975ee0d4f0",
+      "name": "cos tam"
+    },
+    {
+      "id": "e1514468-52c9-42aa-8876-a399db3c025a",
+      "name": "hgfdsa"
+    },
+    {
+      "id": "29d08016-d818-44b6-9c5c-9780ec7ebafc",
+      "name": "dfsdscvs"
+    },
+    {
+      "id": "549907e4-49ba-48dd-aba2-e822829ff21f",
+      "name": "fff"
+    },
+    {
+      "id": "aa262319-ede9-4082-aa4d-43c3ab3cecc6",
+      "name": "ewfwf"
+    },
+    {
+      "id": "82a80f4f-985d-4a6c-ae5a-ee197811e21f",
+      "name": "sdsdsd"
+    },
+    {
+      "id": "5cac3f8a-bd0b-4efd-a0c5-9940aa37344e",
+      "name": "rfrfr"
+    },
+    {
+      "id": "02dbd4d1-cc4c-49cf-bbfe-46523718b641",
+      "name": "kjhgfd"
     }
   ]
 }

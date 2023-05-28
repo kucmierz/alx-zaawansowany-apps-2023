@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import './Chat.css';
-
+import { getMessages, addMessage, removeMessage } from '../../../servives/messages';
+import MessageList from '../../sections/MessageList/MessageList'
+import MessageForm from '../../sections/MessageForm/MessageForm';
+import MessageFormSearch from '../../sections/MessageFormSearch/MessageFormSearch';
 
 // Stworz komponent Chat w pliku src/Chat.js i zaimportuj go do index.js.
 
@@ -23,13 +26,18 @@ function Chat() {
         // const messagesFromLS = JSON.parse(localStorage.getItem('chatMessages')) ?? [];
         // setMessages(messagesFromLS);
         // setAllMessages(messagesFromLS);
-        fetch('http://localhost:8000/messages')
-            .then(res => res.json())
+        getMessages()
             .then(data => {
-                setMessages(data);
-                setAllMessages(data);
+                saveMessages(data);
+                // setMessages(data);
+                // setAllMessages(data);
             })
     }, [])
+
+    const saveMessages = (messages) => {
+        setMessages(messages);
+        setAllMessages(messages);
+    }
 
     const handleAuthorChange = ev => {
         setAuthor(ev.target.value);
@@ -53,13 +61,7 @@ function Chat() {
         setMessages(newMessages);
         setAllMessages(newMessages);
         // localStorage.setItem('chatMessages', JSON.stringify(newMessages));
-        fetch('http://localhost:8000/messages', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(newMessage)
-        })
+        addMessage(newMessage);
         setAuthor('');
         setMessage('');
     };
@@ -81,17 +83,21 @@ function Chat() {
 
     const handleRemove = (id) => {
         const filteredMessages = messages.filter(message => message.id !== id);
-        setMessages(filteredMessages);
-        setAllMessages(filteredMessages);
-        fetch(`http://localhost:8000/messages/${id}`, {
-            method: 'DELETE'
-        });
+        // setMessages(filteredMessages);
+        // setAllMessages(filteredMessages);
+        saveMessages(filteredMessages);
+        removeMessage(id);
     };
 
     return (
         <div className='Chat-main-container'>
             <h1>Chat app</h1>
-            <form onSubmit={handleSearch}>
+            <MessageFormSearch
+                handleSearch={handleSearch}
+                searchValue={searchValue}
+                handleSearchChange={handleSearchChange}
+            />
+            {/* <form onSubmit={handleSearch}>
                 <label>Searching phrase:
                     <input
                         type='text'
@@ -100,8 +106,16 @@ function Chat() {
                     ></input>
                     <button type='submit'>Search</button>
                 </label>
-            </form>
-            <form onSubmit={handleSubmit}>
+            </form> */}
+
+            <MessageForm
+                handleSubmit={handleSubmit}
+                inputAuthor={inputAuthor}
+                handleAuthorChange={handleAuthorChange}
+                inputMessage={inputMessage}
+                handleMessageChange={handleMessageChange}
+            />
+            {/* <form onSubmit={handleSubmit}>
                 <label>
                     Author
                     <input
@@ -119,9 +133,13 @@ function Chat() {
                     />
                 </label>
                 <button type="submit">Send</button>
-            </form>
+            </form> */}
 
-            <ul>
+            <MessageList
+                messages={messages}
+                handleRemove={handleRemove}
+            />
+            {/* <ul>
                 {
                     messages.map(message => {
                         return (
@@ -133,7 +151,7 @@ function Chat() {
                         )
                     })
                 }
-            </ul>
+            </ul> */}
 
         </div>
     );

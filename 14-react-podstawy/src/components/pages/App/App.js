@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-
+import { getTodos, addTodo, removeTodo } from '../../../servives/todos';
 import './App.css';
+import TodoList from '../../sections/TodoList/TodoList';
+import TodoForm from '../../sections/TodoForm/TodoForm';
+import Header from '../../atoms/Header/Header';
 
 // const Header = () => {
 //   return (
@@ -54,6 +57,8 @@ function App() {
   // const [zmienna_ze_stanu, funkcja_zmieniajaca_stan] = useState(wartosc_poczatkowa_stanu)
   const [inputValue, setInputValue] = useState('');
   const [todos, setTodos] = useState([]);
+  const [showError, setShowError] = useState(false);
+  // let showError = false;
 
   // useEffect jest to funkcjonalnosc komponentow, pozwalajaca na odpalenie jakies funkcji/kawalka kodu w zdefiniowanym przez nas momencie.
 
@@ -62,8 +67,7 @@ function App() {
     // const todosFromLS = JSON.parse(localStorage.getItem('todos')) ?? [];
     // setTodos(todosFromLS)
 
-    fetch('http://localhost:8000/todos')
-      .then(res => res.json())
+    getTodos()
       .then(data => {
         setTodos(data);
       })
@@ -74,6 +78,13 @@ function App() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    if (inputValue === '') {
+      // alert('The field cannot be empty');
+      setShowError(true);
+      // console.log(showError);
+      return;
+    }
+
     const newTodo = {
       id: uuidv4(),
       name: inputValue
@@ -83,13 +94,7 @@ function App() {
 
     setTodos(newTodos);
 
-    fetch('http://localhost:8000/todos', {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(newTodo)
-    })
+    addTodo(newTodo);
 
     // localStorage.setItem('todos', JSON.stringify(newTodos));
 
@@ -101,6 +106,7 @@ function App() {
 
     // kazdorazowo uruchomienie funkcji do zmiany stanu powoduje przeladowanie komponentu
     setInputValue(event.target.value);
+    setShowError(false);
   }
 
   const handleRemove = (id) => {
@@ -109,16 +115,24 @@ function App() {
     setTodos(filteredTasks);
     // localStorage.setItem('todos', JSON.stringify(filteredTasks))
 
-    fetch(`http://localhost:8000/todos/${id}`, {
-      method: 'DELETE'
-    })
+    removeTodo(id);
   }
 
   return (
     <div className="App">
-      <h1>Welcome from App</h1>
+      <Header
+        text='Welcome from App'
+      />
+      {/* <h1>Welcome from App</h1> */}
+      <TodoForm
+        handleSubmit={handleSubmit}
+        inputValue={inputValue}
+        handleTaskNameChange={handleTaskNameChange}
+        showError={showError}
+        // errorMsg='Empty!!'
+      />
 
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
         <label>
           Task Name
           <input
@@ -128,9 +142,13 @@ function App() {
           />
         </label>
         <button type="submit">Send</button>
-      </form>
+      </form> */}
 
-      <ul>
+      <TodoList
+        todos={todos}
+        handleRemove={handleRemove}
+      />
+      {/* <ul>
         {todos.map(todo => {
           return (
             <li key={todo.id}>
@@ -139,7 +157,7 @@ function App() {
             </li>
           )
         })}
-      </ul>
+      </ul> */}
 
       {/* <Header></Header>
       <List />

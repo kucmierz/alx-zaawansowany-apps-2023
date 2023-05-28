@@ -1,0 +1,10 @@
+.myButton {
+    background: var(--main-color);
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 4px 12px;
+    margin: 5px 10px;
+    box-shadow: 1px 1px 5px black;
+    cursor: pointer;
+  }
+  
