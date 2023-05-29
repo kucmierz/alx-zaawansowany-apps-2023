@@ -23,6 +23,22 @@
       "time": "15:53",
       "date": "2023-05-30",
       "name": "Kanclerzowa"
+    },
+    {
+      "id": "db3c219d-df4a-4d66-b622-6643c02e03f4",
+      "cityFrom": "Leipzig",
+      "cityTo": "Hamburg",
+      "time": "09:21",
+      "date": "2023-06-30",
+      "name": "Kiel"
+    },
+    {
+      "id": "ed5e2453-034a-4408-b74b-58abb0b81369",
+      "cityFrom": "berlin",
+      "cityTo": "lublin",
+      "time": "17:30",
+      "date": "2023-06-05",
+      "name": "bla"
     }
   ]
 }

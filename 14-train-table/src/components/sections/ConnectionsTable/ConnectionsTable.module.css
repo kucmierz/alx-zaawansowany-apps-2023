@@ -1,0 +1,26 @@
+.connectionTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.connectionTable th,
+.connectionTable td {
+    border: 1px solid #444444;
+    padding: 10px;
+    color: #ffffff;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+.connectionTable th {
+    background-color: #007BFF;
+}
+
+.connectionTable tr:nth-child(even) {
+    background-color: #333333;
+}
+
+.connectionTable tr:nth-child(odd) {
+    background-color: #444444;
+}

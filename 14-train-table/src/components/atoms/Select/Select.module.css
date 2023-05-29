@@ -1,0 +1,20 @@
+.select {
+    color: #ffffff;
+    /* Biały kolor tekstu */
+    background-color: #333333;
+    /* Ciemnoszary kolor tła */
+    border: 1px solid #444444;
+    /* Ciemniejszy kolor obramowania */
+    border-radius: 5px;
+    /* Zaokrąglenie krawędzi */
+    padding: 5px;
+    /* Padding wewnątrz elementu select */
+    font-size: 16px;
+    /* Standardowy rozmiar czcionki, dostosuj wedle potrzeb */
+    font-family: Arial, sans-serif;
+    /* Przykładowa czcionka, dostosuj wedle potrzeb */
+    /* width: 80%; */
+    /* Szerokość na cały dostępny kontener */
+    box-sizing: border-box;
+    /* Box-sizing, aby padding i border nie zwiększały całkowitej szerokości */
+}

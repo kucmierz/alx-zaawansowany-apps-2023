@@ -1,0 +1,32 @@
+.searchForm {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.searchForm input {
+    flex-grow: 1;
+    padding: 5px;
+    color: #ffffff;
+    background-color: #333333;
+    border: 1px solid #444444;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.searchForm button {
+    padding: 5px 10px;
+    color: #ffffff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.searchForm button:hover {
+    background-color: #0056b3;
+}

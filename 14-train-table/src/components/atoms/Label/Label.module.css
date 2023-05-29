@@ -1,0 +1,12 @@
+.label {
+    color: #ffffff;
+    /* Biały kolor tekstu */
+    font-size: 16px;
+    /* Standardowy rozmiar czcionki, dostosuj wedle potrzeb */
+    font-family: Arial, sans-serif;
+    /* Przykładowa czcionka, dostosuj wedle potrzeb */
+    margin-bottom: 5px;
+    /* Margines na dole, aby oddzielić od kolejnego elementu */
+    display: block;
+    /* Wyswietlanie jako blok, dzięki czemu następny element zaczyna się od nowej linii */
+}
