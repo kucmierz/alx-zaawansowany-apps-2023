@@ -1,0 +1,38 @@
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 20vh;
+}
+
+.loginForm label {
+    margin-bottom: 5px;
+}
+
+.loginForm input[type="text"],
+.loginForm input[type="password"] {
+    padding: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    /* Ustawia szerokość inputów na 100% */
+}
+
+.loginForm .loginError {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.loginForm button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    /* Dodaje margines na górę przycisku */
+}
+
+.loginForm button[type="submit"]:hover {
+    background-color: #45a049;
+}

@@ -1,0 +1,58 @@
+utworzenie aplikacji React:
+npx create-react-app 15-react-firebase
+
+uruchomienie:
+przejsc do folderu aplikacji i w cmd wpisac: npm start
+
+
+nastepnie czyscimy aplikacje usuwajac wszystkie zbedne pliki zostawiajac tak naprawde w src index.js
+
+1) Konfiguracja styli
+new folder "styles" i dwa pliki main.css i reset.css
+kod do resetu ze strony: https://meyerweb.com/eric/tools/css/reset/
+wpisz "reset css" w google
+
+standard do main.css:
+:root {
+    
+}
+
+* {
+    box-sizing: border-box;
+}
+
+wpinamy do apki: import './styles/reset.css'
+
+2) struktura, foldery komponentow
+
+3)Routing - na ktorej sciezce jest jakis komponent
+npm install react-router-dom
+nie ma koniecznosci zadjen modyfikacji package.json
+info: reactrouter.com
+mammy client side routing
+import w index.js: import {
+    createBrowserRouter
+} from 'react-router-dom';
+
+ustawienie config:
+const config = createBrowserRouter([
+  {
+    path: '/',
+    element: <Login />
+  },
+  {
+    path: '/dashboard',
+    element: <h1>Hello Dashboard</h1>
+  }
+])
+
+zastosowanie:
+  <React.StrictMode>
+    <RouterProvider router={config} />
+  </React.StrictMode>
+
+
+
+
+
+
