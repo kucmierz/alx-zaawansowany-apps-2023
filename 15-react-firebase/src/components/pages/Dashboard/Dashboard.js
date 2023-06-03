@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react';
 import styles from './Dashboard.module.css'
 import { v4 as uuidv4 } from 'uuid';
 import { getMessages, saveMessage } from '../../../services/firebase'
+import MessageForm from '../../sections/MessageForm/MessageForm';
+import MessageList from '../../sections/MessageList/MessageList';
+import Title from '../../atoms/Title/Title';
 
 const Dashboard = () => {
     const [authorValue, setAuthorValue] = useState('');
@@ -60,7 +63,19 @@ const Dashboard = () => {
 
     return (
         <div className={styles.container}>
-            <form onSubmit={handleSubmit}>
+            <Title
+                text="Chat - Dashboard"
+            />
+
+            <MessageForm
+                handleSubmit={handleSubmit}
+                authorValue={authorValue}
+                authorValueChange={authorValueChange}
+                messageValue={messageValue}
+                messageValueChange={messageValueChange}
+                isMessageValid={isMessageValid}
+            />
+            {/* <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="author">Autor:</label>
                     <input
@@ -79,9 +94,12 @@ const Dashboard = () => {
                 <div>
                     <button type="submit">Wyślij</button>
                 </div>
-            </form>
+            </form> */}
 
-            <ul>
+            <MessageList
+                messages={messages}
+            />
+            {/* <ul>
                 {
                     messages.map(msg => {
                         return (
@@ -93,7 +111,7 @@ const Dashboard = () => {
                     })
                 }
 
-            </ul>
+            </ul> */}
 
         </div>
     );
