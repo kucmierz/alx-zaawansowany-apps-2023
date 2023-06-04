@@ -5,6 +5,7 @@ import { getMessages, saveMessage } from '../../../services/firebase'
 import MessageForm from '../../sections/MessageForm/MessageForm';
 import MessageList from '../../sections/MessageList/MessageList';
 import Title from '../../atoms/Title/Title';
+import Main from '../../templates/Main/Main'
 
 const Dashboard = () => {
     const [authorValue, setAuthorValue] = useState('');
@@ -62,20 +63,21 @@ const Dashboard = () => {
 
 
     return (
-        <div className={styles.container}>
-            <Title
-                text="Chat - Dashboard"
-            />
+        <Main>
+            <div className={styles.container}>
+                <Title
+                    text="Chat - Dashboard"
+                />
 
-            <MessageForm
-                handleSubmit={handleSubmit}
-                authorValue={authorValue}
-                authorValueChange={authorValueChange}
-                messageValue={messageValue}
-                messageValueChange={messageValueChange}
-                isMessageValid={isMessageValid}
-            />
-            {/* <form onSubmit={handleSubmit}>
+                <MessageForm
+                    handleSubmit={handleSubmit}
+                    authorValue={authorValue}
+                    authorValueChange={authorValueChange}
+                    messageValue={messageValue}
+                    messageValueChange={messageValueChange}
+                    isMessageValid={isMessageValid}
+                />
+                {/* <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="author">Autor:</label>
                     <input
@@ -96,10 +98,10 @@ const Dashboard = () => {
                 </div>
             </form> */}
 
-            <MessageList
-                messages={messages}
-            />
-            {/* <ul>
+                <MessageList
+                    messages={messages}
+                />
+                {/* <ul>
                 {
                     messages.map(msg => {
                         return (
@@ -113,7 +115,8 @@ const Dashboard = () => {
 
             </ul> */}
 
-        </div>
+            </div>
+        </Main>
     );
 }
 

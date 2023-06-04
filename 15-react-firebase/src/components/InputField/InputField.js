@@ -1,7 +1,7 @@
 const InputField = props => {
     return (
         <input
-            type={props.text}
+            type={props.type}
             value={props.value}
             onChange={props.onChange} />
     );

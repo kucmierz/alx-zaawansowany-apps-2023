@@ -21,6 +21,7 @@
 // ponizej od Damiana:
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, push, onValue } from "firebase/database";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -37,7 +38,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 const database = getDatabase(app);
-
+const auth = getAuth(app);
 
 export const getMessages = (fn) => {
     const messagesRef = ref(database, 'messages');
@@ -54,4 +55,24 @@ export const getMessages = (fn) => {
 export const saveMessage = newMessage => {
     const messagesRef = ref(database, 'messages');
     push(messagesRef, newMessage)
+}
+
+export const login = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+}
+
+export const createNewUser = (email, password) => {
+    return createUserWithEmailAndPassword(auth, email, password);
+}
+
+// funkcja typu callback
+export const getUser = (fn) => {
+    // return auth.currentUser;
+    onAuthStateChanged(auth, user => {
+        fn(user)
+    })
+}
+
+export const logout = () => {
+    return signOut(auth)
 }

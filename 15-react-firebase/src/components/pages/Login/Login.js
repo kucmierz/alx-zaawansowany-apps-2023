@@ -3,6 +3,10 @@
 import { useState } from "react";
 import styles from './Login.module.css'
 import { useNavigate } from "react-router-dom";
+import InputField from "../../InputField/InputField";
+import Button from '../../Button/Button'
+import { login } from "../../../services/firebase";
+import Main from '../../templates/Main/Main'
 
 
 // Dodaj walidacje do formularza, ze jesli email jest pusty to wyswietl pod inputem taki komunikat
@@ -17,7 +21,7 @@ const Login = () => {
     const [validEmail, setValidEmail] = useState(true);
     const [password, setPassword] = useState('');
     const [validPassword, setValidPassword] = useState(true);
-
+    const [isLoginError, setIsLoginError] = useState(false);
     const navigate = useNavigate();
 
 
@@ -38,10 +42,24 @@ const Login = () => {
 
     const handleSubmit = event => {
         event.preventDefault();
+
         if (validateForm()) {
-            console.log('logowanie');
-            console.log(email, password);
-            navigate('/dashboard')//musi zgadzac sie z tym co jest w config na index.js
+            setIsLoginError(false);
+            login(email, password)
+                .then(() => {
+                    navigate('/dashboard')//musi zgadzac sie z tym co jest w config na index.js
+                })
+                .catch(error => {
+                    //obsluga bledu jesli uzytkownik jest niepoprawny
+                    console.log('message: ', error.message);
+                    console.log('code: ', error.code);
+                    if (error.code.includes('not-found') || error.code.includes('Error')) {
+                        setIsLoginError(true);
+                    }
+
+
+                })
+
         }
 
     }
@@ -51,10 +69,10 @@ const Login = () => {
         if (email.length < 1) {
             setValidEmail(false);
         }
-        if (password.length < 7) {
+        if (password.length < 3) {
             setValidPassword(false);
         }
-        if (email.length > 0 && password.length > 6) {
+        if (email.length > 0 && password.length > 3) {
             isValid = true;
             setValidEmail(true);
             setValidPassword(true);
@@ -65,23 +83,41 @@ const Login = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit} className={styles.loginForm}>
-            <div>
-                <label htmlFor="email">Email:</label>
-                <input type="text" value={email} onChange={emailChange} />
-                <span className={styles.loginError}>{!validEmail ? "Email can not be empty" : null}</span>
-                {/* {!validEmail?<p>Pole email nie moze byc puste</p>:null} */}
-            </div>
-            <div>
-                <label htmlFor="password">Password:</label>
-                <input type="password" value={password} onChange={passwordChange} />
-                <span className={styles.loginError}>{!validPassword ? "Pwd needs to have at least 7 chars" : null}</span>
-            </div>
-            <div>
-                <button type="submit">Login</button>
-            </div>
-        </form>
+        <Main>
+            <form onSubmit={handleSubmit} className={styles.loginForm}>
+                <div>
+                    <label htmlFor="email">Email:</label>
+                    <InputField
+                        type="text"
+                        value={email}
+                        onChange={emailChange}
+                    />
+                    {/* <input type="text" value={email} onChange={emailChange} /> */}
+                    <span className={styles.loginError}>{!validEmail ? "Email can not be empty" : null}</span>
+                    {/* {!validEmail?<p>Pole email nie moze byc puste</p>:null} */}
+                </div>
+                <div>
+                    <label htmlFor="password">Password:</label>
+                    <InputField
+                        type="password"
+                        value={password}
+                        onChange={passwordChange}
+                    />
+                    {/* <input type="password" value={password} onChange={passwordChange} /> */}
+                    <span className={styles.loginError}>{!validPassword ? "Pwd needs to have at least 5 chars" : null}</span>
+                </div>
+                <div>
+                    {/* {isLoginError ? <p>Niepoprawny login lub haslo</p> : null} */}
+                    {isLoginError && <p>Niepoprawny login lub haslo</p>}
+                    <Button
+                        type="submit"
+                        text="Login"
+                    />
 
+                    {/* <button type="submit">Login</button> */}
+                </div>
+            </form>
+        </Main>
     )
 }
 
